@@ -1,6 +1,7 @@
 export const LOAD_UNIVERSITIES_START_ACTION = 'LOAD_UNIVERSITIES_START_ACTION';
 export const LOAD_UNIVERSITIES_SUCCESS_ACTION = 'LOAD_UNIVERSITIES_SUCCESS_ACTION';
 export const LOAD_UNIVERSITIES_ERROR_ACTION = 'LOAD_UNIVERSITIES_ERROR_ACTION';
+export const CLEAR_NAME_ACTION = 'CLEAR_NAME_ACTION';
 
 export const loadUniversitiesStart = () => ({
     type: LOAD_UNIVERSITIES_START_ACTION
@@ -14,6 +15,10 @@ export const loadUniversitiesSuccess = (universitiesValue) => (
 
 export const loadUniversitiesError = () => ({
     type: LOAD_UNIVERSITIES_ERROR_ACTION
+});
+
+export const clearUniversityName = () => ({
+    type: CLEAR_NAME_ACTION
 });
 
 
@@ -33,8 +38,8 @@ const universityReducer =
                 return {...state, universities: action.data, loading: false, error: false};
             case LOAD_UNIVERSITIES_ERROR_ACTION:
                 return {...state, loading: false, error: true};
-            case LOAD_UNIVERSITIES_START_ACTION:
-                return {...state, loading: true, error: false};
+            case CLEAR_NAME_ACTION:
+                return {...state, universities: []}
             default:
                 return state;
         }
