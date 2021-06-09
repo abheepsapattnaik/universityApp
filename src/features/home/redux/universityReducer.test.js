@@ -7,27 +7,15 @@ describe('universityReducer', () => {
             expect(state).toEqual({
                 error: false,
                 loading: false,
-                universities: []
+                universities: [],
+                pageNumber: 1,
+                selectedCountry: undefined,
+                selectedUniversity: undefined,
             });
             expect(state.run).toBeUndefined();
         });
     });
 
-    describe('loadUniversityStartAction', () => {
-        it('should make loading true', () => {
-            const state = {
-                error: false,
-                loading: false,
-                universities: []
-            };
-            const newState = universityReducer(state, loadUniversitiesStart());
-            expect(newState).toEqual({
-                error: false,
-                loading: true,
-                universities: []
-            })
-        });
-    });
     describe('loadUniversitySuccessAction', () => {
         it('should make loading true', () => {
             const state = {
@@ -39,6 +27,7 @@ describe('universityReducer', () => {
             expect(newState).toEqual({
                 error: false,
                 loading: false,
+                pageNumber: 1,
                 universities: [{param: 'trial'}]
             })
         });
