@@ -15,21 +15,22 @@ const UniversityHome = (props) => {
             justifyContent: 'space-around',
             margin: 40
         }}>
-            <CountryAutocomplete style={{margin: '100 auto'}}
-                                 getSelectedCountry={(event, country) => {
-                                     if (!!country) {
-                                         getUniversities(country.title, dispatch).then(r => {
-                                         })
-                                     } else {
-                                         props.onClearCountry()
-                                     }
-                                 }
-                                 }/>
+            <div style={{margin: '100 auto', paddingBottom: 10}}>
+                <CountryAutocomplete
+                    getSelectedCountry={(event, country) => {
+                        if (!!country) {
+                            getUniversities(country.title, dispatch).then(r => {
+                            })
+                        } else {
+                            props.onClearCountry()
+                        }
+                    }
+                    }/>
+            </div>
+
             {!!universityList.length &&
             <BasicTable universities={universityList}/>
             }
-
-
         </div>);
 };
 

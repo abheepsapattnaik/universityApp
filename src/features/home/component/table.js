@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -24,7 +24,7 @@ export default function BasicTable(props) {
     const classes = useStyles();
 
 
-    const { universities } = props;
+    const {universities} = props;
     return (
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
@@ -38,7 +38,9 @@ export default function BasicTable(props) {
                     {universities.map((university) => (
                         <TableRow key={university.name}>
                             <TableCell component="th" scope="row">
-                                <span onClick={()=>{openInNewTab(university.web_pages[0])}}>{university.name}</span>
+                                <span style={{cursor: "pointer"}} onClick={() => {
+                                    openInNewTab(university.web_pages[0])
+                                }}>{university.name}</span>
                             </TableCell>
                             <TableCell align="right">{university['state-province']}</TableCell>
                         </TableRow>
