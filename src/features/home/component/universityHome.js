@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import CountryAutocomplete from "./autocomplete";
 import {getUniversities} from "../../../service/universityService";
 
-const UniversityHome = () => {
+const UniversityHome = (props) => {
     const dispatch = useDispatch();
 
     return (
@@ -15,10 +15,12 @@ const UniversityHome = () => {
             <CountryAutocomplete style={{margin: '100 auto'}}
                                  getSelectedCountry={(event, country) => {
                                      if (!!country) {
-                                         getUniversities(country.title, dispatch)
+                                         getUniversities(country.title, dispatch).then(r => {
+                                         })
                                      }
-                                 }}/></div>);
-}
+                                 }}/>
+        </div>);
+};
 
 
 export default UniversityHome;

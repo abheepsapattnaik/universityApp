@@ -18,8 +18,8 @@ export const loadUniversitiesError = () => ({
 
 
 const initialState = {
-    selectedCountry: undefined,
-    selectedUniversity: undefined,
+    selectedCountry: 'undefined',
+    selectedUniversity: 'undefined',
     loading: false,
     universities: [],
     error: false,
@@ -29,6 +29,7 @@ const universityReducer =
     (state = initialState, action) => {
         switch (action.type) {
             case LOAD_UNIVERSITIES_SUCCESS_ACTION:
+                console.log('success', action.data)
                 return {...state, universities: action.data, loading: false, error: false};
             case LOAD_UNIVERSITIES_ERROR_ACTION:
                 return {...state, loading: false, error: true};
