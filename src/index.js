@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './ common/component/App';
 import reportWebVitals from './reportWebVitals';
-import configStore from "./redux/configStore";
-import {Provider} from "react-redux";
+import configStore from './ common/redux/configStore';
+import {Provider} from 'react-redux';
 
 const store = configStore();
 

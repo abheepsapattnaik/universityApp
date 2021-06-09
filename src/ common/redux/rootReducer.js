@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import universityReducer from './universityReducer';
+import universityReducer from '../../features/home/redux/universityReducer';
 
 const reducerMap = {
     universities: universityReducer
