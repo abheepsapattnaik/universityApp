@@ -1,7 +1,6 @@
 import './App.css';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
-import {getUniversities} from "../../service/universityService";
-import {useDispatch} from "react-redux";
+import UniversityHome from "../../features/home/component/universityHome";
 
 const theme = createMuiTheme({
         palette: {
@@ -13,11 +12,9 @@ const theme = createMuiTheme({
 ;
 
 const App = () => {
-    const dispatch = useDispatch();
-    getUniversities('india', dispatch);
+
     return <MuiThemeProvider theme={theme}>
-        <div className="App">
-        </div>
+        <UniversityHome/>
     </MuiThemeProvider>;
 }
 
