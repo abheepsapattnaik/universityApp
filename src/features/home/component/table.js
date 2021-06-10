@@ -23,7 +23,6 @@ const openInNewTab = (url) => {
 export default function BasicTable(props) {
     const classes = useStyles();
 
-
     const {universities} = props;
     return (
         <TableContainer component={Paper}>
@@ -39,10 +38,10 @@ export default function BasicTable(props) {
                         <TableRow key={university.name}>
                             <TableCell component="th" scope="row">
                                 <span style={{cursor: "pointer"}} onClick={() => {
-                                    openInNewTab(university.web_pages[0])
+                                    openInNewTab(university.web_page)
                                 }}>{university.name}</span>
                             </TableCell>
-                            <TableCell align="right">{university['state-province']}</TableCell>
+                            <TableCell align="right">{university.state}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

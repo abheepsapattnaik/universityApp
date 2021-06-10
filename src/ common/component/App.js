@@ -12,7 +12,6 @@ const theme = createMuiTheme({
 ;
 
 const App = () => {
-
     return <MuiThemeProvider theme={theme}>
         <UniversityHome/>
     </MuiThemeProvider>;

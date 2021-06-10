@@ -1,12 +1,13 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import {TOP_COUNTRIES} from "../../../ common/utils/constants";
 
 export default function CountryAutocomplete(props) {
     return (
         <Autocomplete
             id="country-option"
-            options={topCountries}
+            options={TOP_COUNTRIES}
             getOptionLabel={(object) => object.title}
             onChange={props.getSelectedCountry}
             style={{width: 300}}
@@ -16,9 +17,3 @@ export default function CountryAutocomplete(props) {
     );
 }
 
-const topCountries = [
-    {title: 'India'},
-    {title: 'Sri Lanka'},
-    {title: 'USA'},
-    {title: 'UK'},
-];
