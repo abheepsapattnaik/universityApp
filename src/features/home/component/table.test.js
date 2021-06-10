@@ -1,7 +1,7 @@
-import {shallow} from "enzyme";
-import React from "react";
-import BasicTable from "./table";
-import {TableContainer} from "@material-ui/core";
+import {shallow} from 'enzyme';
+import React from 'react';
+import BasicTable from './table';
+import {TableContainer} from '@material-ui/core';
 
 describe('BasicTable', () => {
     it('should create an autocomplete component', () => {

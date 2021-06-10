@@ -1,10 +1,10 @@
-import {shallow} from "enzyme";
-import React from "react";
-import UniversityHome from "./universityHome";
-import CountryAutocomplete from "./autocomplete";
-import BasicTable from "./table";
-import BasicPagination from "./pagination";
-import {LinearProgress} from "@material-ui/core";
+import {shallow} from 'enzyme';
+import React from 'react';
+import UniversityHome from './universityHome';
+import CountryAutocomplete from './autocomplete';
+import BasicTable from './table';
+import BasicPagination from './pagination';
+import {LinearProgress} from '@material-ui/core';
 
 describe('UniversityHome', () => {
     it('should create an autocomplete component', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {TOP_COUNTRIES} from "../../../ common/utils/constants";
+import {TOP_COUNTRIES} from '../../../ common/utils/constants';
 
 export default function CountryAutocomplete(props) {
     return (

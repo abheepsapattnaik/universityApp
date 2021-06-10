@@ -1,7 +1,7 @@
-import {shallow} from "enzyme";
-import React from "react";
-import CountryAutocomplete from "./autocomplete";
-import {Autocomplete} from "@material-ui/lab";
+import {shallow} from 'enzyme';
+import React from 'react';
+import CountryAutocomplete from './autocomplete';
+import {Autocomplete} from '@material-ui/lab';
 
 describe('Autocomplete', () => {
     it('should create an autocomplete component', () => {

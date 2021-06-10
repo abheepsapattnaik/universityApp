@@ -1,4 +1,4 @@
-import universityReducer, {loadUniversitiesSuccess, updatePageNumber, updateSelectedCountry} from "./universityReducer";
+import universityReducer, {loadUniversitiesSuccess, updatePageNumber, updateSelectedCountry} from './universityReducer';
 
 describe('universityReducer', () => {
     describe('initial action', () => {

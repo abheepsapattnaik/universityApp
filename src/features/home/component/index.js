@@ -1,10 +1,10 @@
-import {connect} from "react-redux";
-import UniversityHome from "./universityHome";
+import {connect} from 'react-redux';
+import UniversityHome from './universityHome';
 import {
     loadUniversitiesError,
     loadUniversitiesSuccess,
     updatePageNumber, updateSelectedCountry
-} from "../redux/universityReducer";
+} from '../redux/universityReducer';
 
 const mapPropsToState = (state) => {
     return {

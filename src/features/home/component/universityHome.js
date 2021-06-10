@@ -25,9 +25,6 @@ const UniversityHome = (props) => {
                             getUniversities(country.title, props).then(_ => {
                             })
                         }
-                        // else {
-                        //     props.onClearCountry();
-                        // }
                     }
                     }/>
             </div>
@@ -52,7 +49,7 @@ const UniversityHome = (props) => {
                 <Typography>Some error happened. Try again in some time</Typography>
             }
             {
-                !props.selectedCountry  && !props.loading &&
+                !props.selectedCountry && !props.loading &&
                 <Typography>Type a Country name to get all universities</Typography>
             }
         </div>);

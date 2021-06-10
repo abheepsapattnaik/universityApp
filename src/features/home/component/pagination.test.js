@@ -1,7 +1,7 @@
-import {shallow} from "enzyme";
-import React from "react";
-import BasicPagination from "./pagination";
-import {Pagination} from "@material-ui/lab";
+import {shallow} from 'enzyme';
+import React from 'react';
+import BasicPagination from './pagination';
+import {Pagination} from '@material-ui/lab';
 
 
 describe('BasicPagination', () => {
