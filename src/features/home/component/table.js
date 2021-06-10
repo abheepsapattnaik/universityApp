@@ -14,12 +14,6 @@ const useStyles = makeStyles({
     },
 });
 
-const openInNewTab = (url) => {
-    const newWindow = window.open(url)
-    if (newWindow) newWindow.opener = null
-}
-
-
 export default function BasicTable(props) {
     const classes = useStyles();
 
@@ -37,9 +31,9 @@ export default function BasicTable(props) {
                     {universities.map((university) => (
                         <TableRow key={university.name}>
                             <TableCell component="th" scope="row">
-                                <span style={{cursor: "pointer"}} onClick={() => {
-                                    openInNewTab(university.web_page)
-                                }}>{university.name}</span>
+                                <a href={university.web_page} style={{cursor: "pointer"}}
+                                   target="_blank" rel="noreferrer"
+                                >{university.name}</a>
                             </TableCell>
                             <TableCell align="right">{university.state}</TableCell>
                         </TableRow>
