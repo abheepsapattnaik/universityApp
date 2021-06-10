@@ -1,6 +1,7 @@
 export const LOAD_UNIVERSITIES_SUCCESS_ACTION = 'LOAD_UNIVERSITIES_SUCCESS_ACTION';
 export const LOAD_UNIVERSITIES_ERROR_ACTION = 'LOAD_UNIVERSITIES_ERROR_ACTION';
 export const CLEAR_NAME_ACTION = 'CLEAR_NAME_ACTION';
+export const UPDATE_NAME_ACTION = 'UPDATE_NAME_ACTION';
 export const PAGE_CHANGE = 'PAGE_CHANGE';
 
 
@@ -23,6 +24,11 @@ export const updatePageNumber = (pageNumber) => ({
     data: pageNumber
 });
 
+export const updateSelectedCountry = (countryName) => ({
+    type: UPDATE_NAME_ACTION,
+    data: countryName
+});
+
 
 const initialState = {
     selectedCountry: undefined,
@@ -42,6 +48,13 @@ const universityReducer =
                 return {...state, loading: false, error: true, universities: []};
             case CLEAR_NAME_ACTION:
                 return {...state, universities: [], pageNumber: 1}
+            case UPDATE_NAME_ACTION:
+                return {
+                    ...state,
+                    selectedCountry: action.data,
+                    loading: true,
+                    universities: !!action.data.trim.length ? state.universities : []
+                }
             case PAGE_CHANGE:
                 return {...state, pageNumber: action.data}
             default:

@@ -20,12 +20,14 @@ const UniversityHome = (props) => {
             <div style={{margin: '100 auto', paddingBottom: 50}}>
                 <CountryAutocomplete
                     getSelectedCountry={(event, country) => {
+                        props.onCountryChange(country?.title.toLowerCase() || '');
                         if (!!country) {
                             getUniversities(country.title, props).then(_ => {
                             })
-                        } else {
-                            props.onClearCountry();
                         }
+                        // else {
+                        //     props.onClearCountry();
+                        // }
                     }
                     }/>
             </div>
@@ -41,12 +43,15 @@ const UniversityHome = (props) => {
             </div>
             }
             {
-                !universityList.length && !props.error &&
+                !universityList.length && !props.error && !!props.selectedCountry && !props.loading &&
                 <Typography>No results Available. Please try some other country !</Typography>
             }
             {
                 !universityList.length && !!props.error &&
                 <Typography>Some error happened. Try again in some time</Typography>
+            }
+            {
+                !props.selectedCountry && <Typography>Type a Country name to get all universities</Typography>
             }
         </div>);
 };

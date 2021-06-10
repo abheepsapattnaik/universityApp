@@ -1,10 +1,9 @@
 import {connect} from "react-redux";
 import UniversityHome from "./universityHome";
 import {
-    clearUniversityName,
     loadUniversitiesError,
     loadUniversitiesSuccess,
-    updatePageNumber
+    updatePageNumber, updateSelectedCountry
 } from "../redux/universityReducer";
 
 const mapPropsToState = (state) => {
@@ -13,13 +12,14 @@ const mapPropsToState = (state) => {
         loading: state.universityStore.loading,
         pageNumber: state.universityStore.pageNumber,
         error: state.universityStore.error,
+        selectedCountry: state.universityStore.selectedCountry
     };
 };
 const mapDispatchToProps = (dispatch) => ({
-    onClearCountry: () => dispatch(clearUniversityName()),
     onPageChange: (pageNumber) => dispatch(updatePageNumber(pageNumber)),
     loadSuccess: (details) => dispatch(loadUniversitiesSuccess(details)),
     loadError: () => dispatch(loadUniversitiesError()),
+    onCountryChange: (countryName) => dispatch(updateSelectedCountry(countryName)),
 });
 
 export default connect(mapPropsToState, mapDispatchToProps)(UniversityHome);
