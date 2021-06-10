@@ -52,7 +52,7 @@ const UniversityHome = (props) => {
                 <Typography>Some error happened. Try again in some time</Typography>
             }
             {
-                props.selectedCountry?.length === 0 && !props.loading &&
+                !props.selectedCountry  && !props.loading &&
                 <Typography>Type a Country name to get all universities</Typography>
             }
         </div>);
