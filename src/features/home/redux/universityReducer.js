@@ -52,7 +52,7 @@ const universityReducer =
                 return {
                     ...state,
                     selectedCountry: action.data,
-                    loading: true,
+                    loading: !!action.data.length,
                     universities: !!action.data.trim.length ? state.universities : []
                 }
             case PAGE_CHANGE:

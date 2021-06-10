@@ -4,7 +4,7 @@ import {getUniversities} from "../../../service/universityService";
 import BasicTable from "./table";
 import BasicPagination from "./pagination";
 import {PAGE_LIMIT} from "../../../ common/utils/constants";
-import {Typography} from "@material-ui/core";
+import {LinearProgress, Typography} from "@material-ui/core";
 
 const UniversityHome = (props) => {
     const universityList = props.universities;
@@ -42,16 +42,18 @@ const UniversityHome = (props) => {
                                  }/>
             </div>
             }
+            {props.loading && !universityList.length && <LinearProgress/>}
             {
                 !universityList.length && !props.error && !!props.selectedCountry && !props.loading &&
                 <Typography>No results Available. Please try some other country !</Typography>
             }
             {
-                !universityList.length && !!props.error &&
+                !universityList.length && !!props.error && !props.loading && props.selectedCountry?.length > 0 &&
                 <Typography>Some error happened. Try again in some time</Typography>
             }
             {
-                !props.selectedCountry && <Typography>Type a Country name to get all universities</Typography>
+                props.selectedCountry?.length === 0 && !props.loading &&
+                <Typography>Type a Country name to get all universities</Typography>
             }
         </div>);
 };
