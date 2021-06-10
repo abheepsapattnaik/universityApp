@@ -39,7 +39,7 @@ const universityReducer =
             case LOAD_UNIVERSITIES_SUCCESS_ACTION:
                 return {...state, universities: action.data, pageNumber: 1, loading: false, error: false};
             case LOAD_UNIVERSITIES_ERROR_ACTION:
-                return {...state, loading: false, error: true};
+                return {...state, loading: false, error: true, universities: []};
             case CLEAR_NAME_ACTION:
                 return {...state, universities: [], pageNumber: 1}
             case PAGE_CHANGE:

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {loadUniversitiesError, loadUniversitiesSuccess} from "../features/home/redux/universityReducer";
 
 const transformData = (universityDetails) => {
     const {country, name, web_pages} = universityDetails;
@@ -10,13 +9,13 @@ const transformData = (universityDetails) => {
     };
 
 }
-export const getUniversities = (country, dispatch) => {
+export const getUniversities = (country, props) => {
 
     return axios
         .get(`http://universities.hipolabs.com/search?country=${country}`)
-        .then(response => dispatch(
-            loadUniversitiesSuccess(response.data.map(eachUniversity => transformData(eachUniversity))))
+        .then(response => props.loadSuccess(
+            response.data.map(eachUniversity => transformData(eachUniversity)))
         )
-        .catch(() => dispatch(loadUniversitiesError()));
+        .catch(() => props.loadError());
 
 }
