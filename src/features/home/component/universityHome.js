@@ -4,7 +4,7 @@ import {getUniversities} from '../../../service/universityService';
 import BasicTable from './table';
 import BasicPagination from './pagination';
 import {PAGE_LIMIT} from '../../../ common/utils/constants';
-import {FilledInput, LinearProgress, Typography} from '@material-ui/core';
+import {LinearProgress, TextField, Typography} from '@material-ui/core';
 
 const UniversityHome = (props) => {
     const universityList = props.universities;
@@ -22,7 +22,7 @@ const UniversityHome = (props) => {
             padding: 40,
             height: '89vh'
         }}>
-            <div style={{margin: '100 auto', paddingBottom: 50}}>
+            <div style={{margin: '100 auto', paddingBottom: 10}}>
                 <CountryAutocomplete
                     getSelectedCountry={(event, country) => {
                         props.onCountryChange(country?.title.toLowerCase() || '');
@@ -35,18 +35,26 @@ const UniversityHome = (props) => {
             </div>
             {!!universityList.length &&
             <div>
-                <FilledInput onChange={(event) => {
-                    props.searchUniversity(event.target.value)
-                }}/>
-                <BasicTable
+                <TextField id="outlined-basic"
+                           label="Search University"
+                           onChange={(event) => {
+                               props.searchUniversity(event.target.value)
+                           }}
+                           style={{margin: '100 auto', paddingBottom: 10, float: "right", width: '20vw'}}
+                           error={!filteredList.length}
+                           helperText={!filteredList.length ? "No University found." : null}/>
+                {filteredList.length > 0 &&
+                <><BasicTable
                     universities={filteredList.slice((currentPage - 1) * PAGE_LIMIT, currentPage * PAGE_LIMIT)}/>
-                <BasicPagination pages={Math.ceil(filteredList.length / PAGE_LIMIT)}
-                                 getSelectedPageNumber={(event, pageNumber) => {
-                                     props.onPageChange(pageNumber);
-                                 }
+                    <BasicPagination currentPage={currentPage}
+                                     pages={Math.ceil(filteredList.length / PAGE_LIMIT)}
+                                     getSelectedPageNumber={(event, pageNumber) => {
+                                         props.onPageChange(pageNumber);
+                                     }
+                                     }
+                    /></>
 
-                                 }
-                                 currentPage={currentPage}/>
+                }
             </div>
             }
             {props.loading && !filteredList.length && <LinearProgress/>}
