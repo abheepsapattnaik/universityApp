@@ -5,6 +5,7 @@ import BasicTable from "./table";
 import BasicPagination from "./pagination";
 import {PAGE_LIMIT} from "../../../ common/utils/constants";
 import {LinearProgress, Typography} from "@material-ui/core";
+import { purple_color} from "../../../ common/style/styleConstants";
 
 const UniversityHome = (props) => {
     const universityList = props.universities;
@@ -14,7 +15,8 @@ const UniversityHome = (props) => {
         <div style={{
             display: 'block',
             justifyContent: 'space-around',
-            margin: 40
+            padding: 40,
+            backgroundColor: purple_color
         }}>
             <div style={{margin: '100 auto', paddingBottom: 50}}>
                 <CountryAutocomplete
