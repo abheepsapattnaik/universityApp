@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import LinkToDetails from "../LinkToDetails";
 
 const useStyles = makeStyles({
     table: {
@@ -31,9 +32,7 @@ export default function BasicTable(props) {
                     {universities.map((university) => (
                         <TableRow key={university.name}>
                             <TableCell component="th" scope="row">
-                                <a href={university.web_page} style={{cursor: "pointer"}}
-                                   target="_blank" rel="noreferrer"
-                                >{university.name}</a>
+                                <LinkToDetails universityDetails={university}> </LinkToDetails>
                             </TableCell>
                             <TableCell align="right">{university.state}</TableCell>
                         </TableRow>

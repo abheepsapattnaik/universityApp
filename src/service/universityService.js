@@ -5,7 +5,8 @@ const transformData = (universityDetails) => {
     return {
         country, name,
         state: universityDetails['state-province'] || 'Not Available',
-        web_page: web_pages[0]
+        web_page: web_pages[0],
+        id: universityDetails.domains[0].split(".")[0]
     };
 
 }

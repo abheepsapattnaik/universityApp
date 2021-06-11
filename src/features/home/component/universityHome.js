@@ -19,7 +19,7 @@ const UniversityHome = (props) => {
             display: 'block',
             justifyContent: 'space-around',
             padding: 40,
-            height : '89vh'
+            height: '89vh'
         }}>
             <div style={{margin: '100 auto', paddingBottom: 50}}>
                 <CountryAutocomplete

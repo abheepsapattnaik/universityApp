@@ -7,20 +7,21 @@ describe('UniversityServiceTest', () => {
         const data = {
             data: [
                 {
-                    "state-province": "Punjab",
-                    "web_pages": ["http://www.davietjal.org/"],
-                    "alpha_two_code": "IN",
-                    "country": "Country",
-                    "name": "DAV Institute of Engineering & Technology",
-                    "domains": ["davietjal.org"]
+                    'state-province': 'Punjab',
+                    'web_pages': ['http://www.davietjal.org/'],
+                    'alpha_two_code': 'IN',
+                    'country': 'Country',
+                    'name': 'DAV Institute of Engineering & Technology',
+                    'domains': ['davietjal.org']
                 }
             ]
         };
         const expectedData = [{
-            country: "Country",
-            name: "DAV Institute of Engineering & Technology",
-            state: "Punjab",
-            web_page: "http://www.davietjal.org/"
+            country: 'Country',
+            name: 'DAV Institute of Engineering & Technology',
+            state: 'Punjab',
+            web_page: 'http://www.davietjal.org/',
+            id: 'davietjal'
         }]
         const props = {
             loadSuccess: jest.fn(),
