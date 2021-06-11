@@ -11,6 +11,7 @@ describe('universityReducer', () => {
                 pageNumber: 1,
                 selectedCountry: undefined,
                 selectedUniversity: undefined,
+                searchInput: '',
             });
             expect(state.run).toBeUndefined();
         });
@@ -27,7 +28,8 @@ describe('universityReducer', () => {
                 error: false,
                 loading: false,
                 pageNumber: 1,
-                universities: [{param: 'trial'}]
+                universities: [{param: 'trial'}],
+                searchInput: '',
             })
         });
     });
@@ -46,7 +48,8 @@ describe('universityReducer', () => {
                 loading: true,
                 pageNumber: 1,
                 selectedCountry: 'us',
-                universities: []
+                universities: [],
+                searchInput: ''
             })
         });
 
@@ -63,7 +66,8 @@ describe('universityReducer', () => {
                 loading: false,
                 pageNumber: 1,
                 selectedCountry: '',
-                universities: []
+                universities: [],
+                searchInput: ''
             })
         });
     });

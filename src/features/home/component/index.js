@@ -3,7 +3,9 @@ import UniversityHome from './universityHome';
 import {
     loadUniversitiesError,
     loadUniversitiesSuccess,
-    updatePageNumber, updateSelectedCountry
+    searchUniversity,
+    updatePageNumber,
+    updateSelectedCountry,
 } from '../redux/universityReducer';
 
 const mapPropsToState = (state) => {
@@ -12,7 +14,8 @@ const mapPropsToState = (state) => {
         loading: state.universityStore.loading,
         pageNumber: state.universityStore.pageNumber,
         error: state.universityStore.error,
-        selectedCountry: state.universityStore.selectedCountry
+        selectedCountry: state.universityStore.selectedCountry,
+        searchInput: state.universityStore.searchInput,
     };
 };
 const mapDispatchToProps = (dispatch) => ({
@@ -20,6 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
     loadSuccess: (details) => dispatch(loadUniversitiesSuccess(details)),
     loadError: () => dispatch(loadUniversitiesError()),
     onCountryChange: (countryName) => dispatch(updateSelectedCountry(countryName)),
+    searchUniversity: (input) => dispatch(searchUniversity(input)),
 });
 
 export default connect(mapPropsToState, mapDispatchToProps)(UniversityHome);

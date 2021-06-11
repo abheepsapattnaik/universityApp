@@ -12,10 +12,11 @@ describe('UniversityHome', () => {
             universities: [{
                 name: 'Uni name',
                 web_page: 'www.example.com',
-                state: 'State'
+                state: 'State',
             }],
             currentPage: 1,
-            loading: false
+            loading: false,
+            searchInput: ''
         };
         const universityHomeTag = shallow(<UniversityHome {...props}/>);
         const autocompleteTag = universityHomeTag.find(CountryAutocomplete);

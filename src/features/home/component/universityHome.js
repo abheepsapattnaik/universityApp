@@ -4,16 +4,17 @@ import {getUniversities} from '../../../service/universityService';
 import BasicTable from './table';
 import BasicPagination from './pagination';
 import {PAGE_LIMIT} from '../../../ common/utils/constants';
-import {LinearProgress, Typography} from '@material-ui/core';
+import {FilledInput, LinearProgress, Typography} from '@material-ui/core';
 
 const UniversityHome = (props) => {
     const universityList = props.universities;
     const currentPage = props.pageNumber;
 
-    const noResultsMessage = !universityList.length && !props.error && !!props.selectedCountry && !props.loading;
-    const errorMessage = !universityList.length && !!props.error && !props.loading && props.selectedCountry?.length > 0;
-    const typeToStartMessage = !props.selectedCountry && !props.loading;
+    const filteredList = universityList.filter(each => each.name.toLowerCase().includes(props.searchInput.toLowerCase()));
 
+    const noResultsMessage = !universityList.length && !props.error && !!props.selectedCountry && !props.loading;
+    const errorMessage = !filteredList.length && !!props.error && !props.loading && props.selectedCountry?.length > 0;
+    const typeToStartMessage = !props.selectedCountry && !props.loading;
     return (
         <div style={{
             display: 'block',
@@ -34,16 +35,19 @@ const UniversityHome = (props) => {
             </div>
             {!!universityList.length &&
             <div>
+                <FilledInput onChange={(event) => {
+                    props.searchUniversity(event.target.value)
+                }}/>
                 <BasicTable
-                    universities={universityList.slice((currentPage - 1) * PAGE_LIMIT, currentPage * PAGE_LIMIT)}/>
-                <BasicPagination pages={Math.ceil(universityList.length / PAGE_LIMIT)}
+                    universities={filteredList.slice((currentPage - 1) * PAGE_LIMIT, currentPage * PAGE_LIMIT)}/>
+                <BasicPagination pages={Math.ceil(filteredList.length / PAGE_LIMIT)}
                                  getSelectedPageNumber={(event, pageNumber) => {
                                      props.onPageChange(pageNumber);
                                  }
                                  }/>
             </div>
             }
-            {props.loading && !universityList.length && <LinearProgress/>}
+            {props.loading && !filteredList.length && <LinearProgress/>}
             {
                 noResultsMessage && <Typography>No results Available. Please try some other country !</Typography>
             }
