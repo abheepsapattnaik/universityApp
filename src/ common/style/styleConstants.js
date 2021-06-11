@@ -1,3 +1,3 @@
-import indigo from '@material-ui/core/colors/indigo';
+import blue from '@material-ui/core/colors/blue';
 
-export const purple_color = indigo[50]; // #e8eaf6
+export const purple_color = blue[50]; // #e8eaf6

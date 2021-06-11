@@ -19,8 +19,8 @@ export default function BasicTable(props) {
 
     const {universities} = props;
     return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
+        <TableContainer component={Paper} style={{maxHeight: "71vh"}}>
+            <Table stickyHeader className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>University Name</TableCell>

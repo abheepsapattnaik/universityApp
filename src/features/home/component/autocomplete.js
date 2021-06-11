@@ -10,7 +10,7 @@ export default function CountryAutocomplete(props) {
             options={TOP_COUNTRIES}
             getOptionLabel={(object) => object.title}
             onChange={props.getSelectedCountry}
-            style={{width: 300}}
+            style={{width: "40vw"}}
             renderInput={(params) =>
                 <TextField {...params} label="Select Country" variant="outlined"/>}
         />

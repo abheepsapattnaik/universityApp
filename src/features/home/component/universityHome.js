@@ -1,22 +1,25 @@
-import React from "react";
-import CountryAutocomplete from "./autocomplete";
-import {getUniversities} from "../../../service/universityService";
-import BasicTable from "./table";
-import BasicPagination from "./pagination";
-import {PAGE_LIMIT} from "../../../ common/utils/constants";
-import {LinearProgress, Typography} from "@material-ui/core";
-import { purple_color} from "../../../ common/style/styleConstants";
+import React from 'react';
+import CountryAutocomplete from './autocomplete';
+import {getUniversities} from '../../../service/universityService';
+import BasicTable from './table';
+import BasicPagination from './pagination';
+import {PAGE_LIMIT} from '../../../ common/utils/constants';
+import {LinearProgress, Typography} from '@material-ui/core';
 
 const UniversityHome = (props) => {
     const universityList = props.universities;
     const currentPage = props.pageNumber;
+
+    const noResultsMessage = !universityList.length && !props.error && !!props.selectedCountry && !props.loading;
+    const errorMessage = !universityList.length && !!props.error && !props.loading && props.selectedCountry?.length > 0;
+    const typeToStartMessage = !props.selectedCountry && !props.loading;
 
     return (
         <div style={{
             display: 'block',
             justifyContent: 'space-around',
             padding: 40,
-            backgroundColor: purple_color
+            height : '89vh'
         }}>
             <div style={{margin: '100 auto', paddingBottom: 50}}>
                 <CountryAutocomplete
@@ -42,16 +45,13 @@ const UniversityHome = (props) => {
             }
             {props.loading && !universityList.length && <LinearProgress/>}
             {
-                !universityList.length && !props.error && !!props.selectedCountry && !props.loading &&
-                <Typography>No results Available. Please try some other country !</Typography>
+                noResultsMessage && <Typography>No results Available. Please try some other country !</Typography>
             }
             {
-                !universityList.length && !!props.error && !props.loading && props.selectedCountry?.length > 0 &&
-                <Typography>Some error happened. Try again in some time</Typography>
+                errorMessage && <Typography>Some error happened. Try again in some time</Typography>
             }
             {
-                !props.selectedCountry && !props.loading &&
-                <Typography>Type a Country name to get all universities</Typography>
+                typeToStartMessage && <Typography>Type a Country name to get all universities</Typography>
             }
         </div>);
 };
