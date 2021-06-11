@@ -44,7 +44,9 @@ const UniversityHome = (props) => {
                                  getSelectedPageNumber={(event, pageNumber) => {
                                      props.onPageChange(pageNumber);
                                  }
-                                 }/>
+
+                                 }
+                                 currentPage={currentPage}/>
             </div>
             }
             {props.loading && !filteredList.length && <LinearProgress/>}
