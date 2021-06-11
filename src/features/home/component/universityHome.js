@@ -13,7 +13,6 @@ const UniversityHome = (props) => {
     return (
         <div style={{
             display: 'block',
-            height: '100vh',
             justifyContent: 'space-around',
             margin: 40
         }}>
