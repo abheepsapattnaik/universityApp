@@ -27,7 +27,6 @@ export const updateSelectedCountry = (countryName) => ({
 
 const initialState = {
     selectedCountry: undefined,
-    selectedUniversity: undefined,
     pageNumber: 1,
     loading: false,
     universities: [],
