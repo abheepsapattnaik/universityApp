@@ -13,7 +13,7 @@ const UniversityHome = (props) => {
     const filteredList = universityList.filter(each => each.name.toLowerCase().includes(props.searchInput.toLowerCase()));
 
     const noResultsMessage = !universityList.length && !props.error && !!props.selectedCountry && !props.loading;
-    const errorMessage = !filteredList.length && !!props.error && !props.loading && props.selectedCountry?.length > 0;
+    const errorMessage = !filteredList.length && props.error && !props.loading && props.selectedCountry?.length > 0;
     const typeToStartMessage = !props.selectedCountry && !props.loading;
     return (
         <div style={{

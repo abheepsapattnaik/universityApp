@@ -1,4 +1,9 @@
-import universityReducer, {loadUniversitiesSuccess, updatePageNumber, updateSelectedCountry} from './universityReducer';
+import universityReducer, {
+    loadUniversitiesSuccess,
+    searchUniversity,
+    updatePageNumber,
+    updateSelectedCountry
+} from './universityReducer';
 
 describe('universityReducer', () => {
     describe('initial action', () => {
@@ -87,6 +92,31 @@ describe('universityReducer', () => {
                 pageNumber: 3,
                 selectedCountry: 'india',
                 universities: [{param: 'trial'}],
+            })
+        });
+
+    });
+    describe('searchUniversityAction', () => {
+        it('should update search state', () => {
+            const state = {
+                error: false,
+                loading: false,
+                selectedCountry: 'india',
+                universities: [
+                    {
+                        name: 'veer surendra sai university of university',
+                    },
+                ],
+                pageNumber: 2,
+            };
+            const newState = universityReducer(state, searchUniversity('veer'));
+            expect(newState).toEqual({
+                error: false,
+                loading: false,
+                pageNumber: 1,
+                selectedCountry: 'india',
+                universities: [{name: 'veer surendra sai university of university'}],
+                searchInput: 'veer',
             })
         });
 

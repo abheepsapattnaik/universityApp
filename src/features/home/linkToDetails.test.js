@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
 import React from 'react';
-import LinkToDetails from './LinkToDetails';
+import LinkToDetails from './linkToDetails';
 import {Typography} from '@material-ui/core';
 
 describe('LinkToDetails', () => {

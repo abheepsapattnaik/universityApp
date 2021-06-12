@@ -2,7 +2,7 @@ import {shallow} from 'enzyme';
 import React from 'react';
 import BasicTable from './table';
 import {TableContainer} from '@material-ui/core';
-import LinkToDetails from "../LinkToDetails";
+import LinkToDetails from '../linkToDetails';
 
 describe('BasicTable', () => {
     it('should create an autocomplete component', () => {
